@@ -1,0 +1,44 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = "../build"
+
+subprojects {
+    afterEvaluate { project ->
+        if (project.hasProperty('android')) {
+            project.android {
+                if (namespace == null && project.name != 'vpnLib') {
+                    namespace project.group
+                }
+                if(project.name == 'ironsource_mediation'){
+                    compileOptions {
+                        sourceCompatibility = JavaVersion.VERSION_1_8
+                        targetCompatibility = JavaVersion.VERSION_1_8
+                    }
+                    kotlinOptions {
+                        jvmTarget = JavaVersion.VERSION_1_8
+                    }
+                }
+            }
+        }
+
+        if (project.plugins.hasPlugin("com.android.application") ||
+                project.plugins.hasPlugin("com.android.library") && project.name != 'vpnLib') {
+            project.android {
+                compileSdkVersion 34
+            }
+        }
+    }
+}
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+    project.evaluationDependsOn(":app")
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

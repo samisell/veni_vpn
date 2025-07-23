@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "737971595067",
+    "project_id": "borderless-326fa",
+    "storage_bucket": "borderless-326fa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737971595067:android:d62e9cec465e7f2e9f391e",
+        "android_client_info": {
+          "package_name": "com.venihost.borderless"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0pToLWokfULPBJnu9T6IzLmGRmySjoiM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
